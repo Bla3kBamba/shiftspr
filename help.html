@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>עזרה</title>
+    <link rel="stylesheet" href="help.css">
+</head>
+<body>
+    <header>
+        <span id="user-greeting"></span>
+        <button id="logout-btn">התנתקות</button>
+    </header>
+
+    <main>
+        <h1>עמוד העזרה</h1>
+        <p>המערכת שלנו מאפשרת לך לנהל משמרות בצורה יעילה...</p>
+        <button id="back-btn">חזור לדף הבית</button>
+    </main>
+
+    <script>
+        const userName = localStorage.getItem('userName');
+        document.getElementById('user-greeting').textContent = `שלום, ${userName}`;
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('userName');
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('back-btn').addEventListener('click', () => {
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
